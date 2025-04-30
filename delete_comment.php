@@ -1,0 +1,23 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $file = $_POST['file'];
+    $comment_line = $_POST['comment_line'];
+    
+    if (file_exists($file)) {
+        $comments = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $updated_comments = array_filter($comments, function($line) use ($comment_line) {
+            return $line !== $comment_line;
+        });
+        
+        file_put_contents($file, implode(PHP_EOL, $updated_comments) . PHP_EOL, LOCK_EX);
+    }
+    
+    // Redirect back to the appropriate article page
+    $article_id = preg_replace('/[^0-9]/', '', basename($file));
+    header("Location: article{$article_id}.php");
+    exit;
+} else {
+    header("Location: index.php");
+    exit;
+}
+?>
