@@ -12,7 +12,7 @@ function display_comments($file) {
                     echo '<h4>' . $name . ' <small>(' . $email . ')</small></h4>';
                     echo '<p>' . $comment_text . '</p>'; // Vulnerable - no htmlspecialchars()
                     echo '<small>Posted on ' . date('F j, Y, g:i a', $timestamp) . '</small>';
-                    echo '<form method="post" action="delete_comment.php" style="display:inline;">';
+                    echo '<form method="post" action="delete_comment.html" style="display:inline;">';
                     echo '<input type="hidden" name="file" value="' . $file . '">';
                     echo '<input type="hidden" name="comment_line" value="' . htmlspecialchars($comment) . '">';
                     echo '<button type="submit" class="delete-comment">Delete</button>';

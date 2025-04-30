@@ -80,10 +80,10 @@ include 'includes/header.php';
 <section class="comments">
     <h2>Comments</h2>
     
-    <?php include 'includes/functions.php'; ?>
+    <?php include 'includes/functions.html'; ?>
     <?php display_comments($comments_file); ?>
     
-    <form method="post" action="post_comment.php" class="comment-form">
+    <form method="post" action="post_comment.html" class="comment-form">
         <input type="hidden" name="article_id" value="<?php echo $article_id; ?>">
         <div>
             <label for="name">Name:</label>
@@ -101,6 +101,6 @@ include 'includes/header.php';
     </form>
 </section>
 
-<a href="index.php" class="home-button" title="Go to Home">🏠</a>
+<a href="index.html" class="home-button" title="Go to Home">🏠</a>
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/footer.html'; ?>

@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Redirect back to the appropriate article page
     $article_id = preg_replace('/[^0-9]/', '', basename($file));
-    header("Location: article{$article_id}.php");
+    header("Location: article{$article_id}.html");
     exit;
 } else {
-    header("Location: index.php");
+    header("Location: index.html");
     exit;
 }
 ?>
